@@ -1,0 +1,45 @@
+.loginForm {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.centerForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.loginForm .btn-primary {
+    width: 100%;
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.loginForm .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.loginForm .btn-secondary {
+    width: 100%;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+  
+.loginForm .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
