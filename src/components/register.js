@@ -3,6 +3,8 @@ import { Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import '../register.css';
+import logo from '../images/logo.png';
+import { Image } from 'react-bootstrap';
 
 export default function RegisterForm() {
     const [step, setStep] = useState(1);
@@ -36,6 +38,11 @@ export default function RegisterForm() {
     return (
         <div className='register-container'>
             <div className={`register-box ${isAnimating ? 'fade-out' : 'fade-in'}`}>
+                <h5>Crear cuenta</h5>
+                <hr className="bg-light division"/>
+                <div className='logo'>
+                    <Image src={logo} alt="Pocho Sports Logo" />
+                </div>
                 <h2>Pocho Sports</h2>
                 <p>Productos para Deportes al Aire Libre</p>
                 <Form>
