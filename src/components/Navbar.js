@@ -5,18 +5,19 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import CarritoNavBar from './CarritoNavBar';
+import { Link } from 'react-router-dom';
 
 
 function BasicExample() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#home">Pocho Sports</Navbar.Brand>
+      <Link to={"/"} className='text-decoration-none'><Navbar.Brand href="#home">Pocho Sports</Navbar.Brand></Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
+            <Link to={"/"} className='text-decoration-none'><Nav.Link href="#home">Inicio</Nav.Link></Link>
+            <Link to={"/catalogo"} className='text-decoration-none'><Nav.Link href="#link">Catalogo</Nav.Link></Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
