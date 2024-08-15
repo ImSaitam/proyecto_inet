@@ -21,7 +21,7 @@ export default function Footer() {
             <h5>Links</h5>
             <ul className="list-unstyled">
               <li>
-                <a href="#" className="text-light">GitHub</a>
+                <a href="https://github.com/ImSaitam/proyecto_inet" className="text-light">GitHub</a>
               </li>
             </ul>
           </Col>

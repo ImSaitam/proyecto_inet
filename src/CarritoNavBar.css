@@ -1,0 +1,33 @@
+.carrito {
+    margin-right: 2vh;
+}
+
+.text-carrito {
+    margin-left: 4%;
+}
+
+.division {
+    margin: 0 4% 0 4%;
+}
+
+.product-image {
+    width: 20%;
+    height: auto;
+}
+
+.carrito-dropdown {
+    width: 25rem;
+}
+
+.product-amount {
+    margin-left: 1em;
+}
+
+.product-name {
+    margin-left: 1em;
+    font-weight: bold;
+}
+
+.product-price {
+    margin-left: 4em;
+}

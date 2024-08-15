@@ -27,27 +27,10 @@
   
 .registerForm .btn-primary {
     width: 100%;
-    background-color: #007bff;
-    border-color: #007bff;
     font-weight: bold;
     margin-bottom: 10px;
 }
-  
-.registerForm .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+
+.mini-link {
+    text-decoration: none;
 }
-  
-.registerForm .btn-secondary {
-    width: 100%;
-    background-color: #6c757d;
-    border-color: #6c757d;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-  
-.registerForm .btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #545b62;
-}
-  

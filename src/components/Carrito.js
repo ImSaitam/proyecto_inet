@@ -5,6 +5,7 @@ export default function Carrito() {
     return (
         <>
         <BarraNav />
+        
         <Footer />
         </>
     );
