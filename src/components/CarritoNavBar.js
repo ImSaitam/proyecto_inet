@@ -18,19 +18,23 @@ export default function CarritoNavBar() {
               <div style={{ display: 'flex', alignItems: 'center', backgroundColor: '#dbdbdb', borderRadius: '.5em', margin: '1em' }}>
                 <Image src={art1} className="product-image" fluid />
                 <p className="mt-4 product-amount" >x 1</p>
-                <p className="mt-4 product-name">Umbro Class</p>
+                <p className="mt-4 product-name">Umbro Class<br />Talle: 42</p>
                 <p className="mt-4 product-price">$25999.99</p>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', backgroundColor: '#dbdbdb', borderRadius: '.5em', margin: '1em' }}>
                 <Image src={art1} className="product-image" fluid />
                 <p className="mt-4 product-amount" >x 1</p>
-                <p className="mt-4 product-name">Umbro Class</p>
+                <p className="mt-4 product-name">Umbro Class<br />Talle: 42</p>
                 <p className="mt-4 product-price">$25499.99</p>
               </div>
               <hr className="bg-light division"/>
+              <div className='d-flex justify-content-between'>
+                <p className='text-carrito mt-2'>Total:</p>
+                <p className='text-carrito mt-2 me-3'>$51499.98</p>
+              </div>
               <div className="text-end">
                 <Link to={"/carrito"}>
-                    <Button variant="success" className="mt-2 me-3">Finalizar compra</Button>
+                    <Button variant="success" className="checkout-button me-3">Finalizar compra</Button>
                 </Link>
               </div>
               </Dropdown.Menu>

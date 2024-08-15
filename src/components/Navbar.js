@@ -12,11 +12,11 @@ function BasicExample() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-      <Link to={"/"} className='text-decoration-none'><Navbar.Brand href="#home">Pocho Sports</Navbar.Brand></Link>
+      <Link to={"/"} className='text-decoration-none'><Navbar.Brand>Pocho Sports</Navbar.Brand></Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link to={"/"} className='text-decoration-none'><Nav.Link href="#home">Inicio</Nav.Link></Link>
+            <Link to={"/"} className='text-decoration-none'><Nav.Link>Inicio</Nav.Link></Link>
             <Link to={"/catalogo"} className='text-decoration-none'><Nav.Link href="#link">Catalogo</Nav.Link></Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

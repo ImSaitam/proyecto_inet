@@ -29,7 +29,7 @@ export default function Footer() {
         <hr className="bg-light"/>
         <Row>
           <Col className="text-center">
-            <p>&copy; 2024 Your Company. All rights reserved.</p>
+            <p>&copy; 2024 Pocho Sports. All rights reserved.</p>
           </Col>
         </Row>
       </Container>
