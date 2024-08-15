@@ -1,45 +1,86 @@
-.loginForm {
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 2;
-}
-
-.centerForm {
+.login-container {
+    background-color: #E5F6FF;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
 }
 
-.loginForm .btn-primary {
-    width: 100%;
-    background-color: #007bff;
-    border-color: #007bff;
-    font-weight: bold;
+.login-box {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 25rem;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
     margin-bottom: 10px;
 }
 
-.loginForm .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+h2 {
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 5px;
 }
 
-.loginForm .btn-secondary {
+p {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.login-box input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
     width: 100%;
-    background-color: #6c757d;
-    border-color: #6c757d;
-    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #00A6FF;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
 }
-  
-.loginForm .btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #545b62;
+
+.forgot-password {
+    font-size: 12px;
+    color: #00A6FF;
+    text-decoration: none;
+}
+
+.register-link {
+    margin-top: 15px;
+}
+
+.register-link a {
+    font-size: 12px;
+    color: #00A6FF;
+    text-decoration: none;
+}
+
+.bg-light {
+    background-color: #E5F6FF !important;
+}
+
+.shadow {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.division {
+    margin: 2% 0 6% 0;
 }

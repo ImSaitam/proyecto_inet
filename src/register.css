@@ -1,36 +1,73 @@
-.registerForm {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 2;
-    margin: auto;
-    margin-top: 50px; /* Espacio adicional arriba para separarlo del fondo */
+.register-container {
+    background-color: #E5F6FF; /* Mismo color de fondo que en login */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.registerForm .form-group {
-    margin-bottom: 1rem;
+.register-box {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 25rem;
 }
-  
-.registerForm .form-label {
-    font-weight: bold;
-    color: #343a40;
+
+h2 {
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 5px;
 }
-  
-.registerForm .form-control {
-    border-radius: 5px;
-    border: 1px solid #ced4da;
+
+p {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 20px;
 }
-  
-.registerForm .btn-primary {
-    width: 100%;
-    font-weight: bold;
+
+.register-box input {
     margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: #00A6FF;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 .mini-link {
+    font-size: 12px;
+    color: #00A6FF;
     text-decoration: none;
+}
+
+.division {
+    margin: 2% 0 6% 0;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
