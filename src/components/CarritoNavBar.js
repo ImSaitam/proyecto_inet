@@ -2,42 +2,45 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Dropdown from "react-bootstrap/Dropdown";
 import { IoCartOutline } from "react-icons/io5";
 import '../CarritoNavBar.css';
-import { Button, Image } from "react-bootstrap";
-import art1 from "../images/botin1.png";
+import { Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 export default function CarritoNavBar() {
+
+  const [token, setToken] = useState(localStorage.getItem('token'));
+
+  useEffect(() => {
+    setToken(localStorage.getItem('token'));
+  }, []);
+
+  if (!token) {
     return (
-        <Dropdown className="carrito">
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-              <IoCartOutline />
-              </Dropdown.Toggle>
-              <Dropdown.Menu className='dropdown-menu-end carrito-dropdown'>
-              <p className='text-carrito mt-2'>Productos:</p>
-              <hr className="bg-light division"/>
-              <div style={{ display: 'flex', alignItems: 'center', backgroundColor: '#dbdbdb', borderRadius: '.5em', margin: '1em' }}>
-                <Image src={art1} className="product-image" fluid />
-                <p className="mt-4 product-amount" >x 1</p>
-                <p className="mt-4 product-name">Umbro Class<br />Talle: 42</p>
-                <p className="mt-4 product-price">$25999.99</p>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', backgroundColor: '#dbdbdb', borderRadius: '.5em', margin: '1em' }}>
-                <Image src={art1} className="product-image" fluid />
-                <p className="mt-4 product-amount" >x 1</p>
-                <p className="mt-4 product-name">Umbro Class<br />Talle: 42</p>
-                <p className="mt-4 product-price">$25499.99</p>
-              </div>
-              <hr className="bg-light division"/>
-              <div className='d-flex justify-content-between'>
-                <p className='text-carrito mt-2'>Total:</p>
-                <p className='text-carrito mt-2 me-3'>$51499.98</p>
-              </div>
-              <div className="text-end">
-                <Link to={"/carrito"}>
-                    <Button variant="success" className="checkout-button me-3">Finalizar compra</Button>
-                </Link>
-              </div>
-              </Dropdown.Menu>
-            </Dropdown>
+      <Dropdown className="carrito">
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+          <IoCartOutline />
+        </Dropdown.Toggle>
+        <Dropdown.Menu className='dropdown-menu-end carrito-dropdown'>
+        <p className='text-carrito mt-2'>Productos:</p>
+        <hr className="bg-light division-login"/>
+          <Link to={"/login"} className='text-login ms-4 text-decoration-none d-inline'>Iniciar sesión</Link><p className='d-inline text-login'>para acceder al carrito</p> 
+        </Dropdown.Menu>
+      </Dropdown>
     );
+  }
+
+  return (
+    <Dropdown className="carrito">
+      <Dropdown.Toggle variant="success" id="dropdown-basic">
+        <IoCartOutline />
+      </Dropdown.Toggle>
+      <Dropdown.Menu className='dropdown-menu-end carrito-dropdown'>
+        {/* contenido del carrito */}
+        <p className='text-carrito mt-2'>Productos:</p>
+        <hr className="bg-light division"/>
+        {/* resto del contenido del carrito */}
+        <Link to={"/carrito"}><Button className='checkout-button' variant='success'>Finalizar compra</Button></Link>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
 }

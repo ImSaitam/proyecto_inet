@@ -2,6 +2,12 @@
     margin-right: 2vh;
 }
 
+.text-login {
+    font-size: 1.2em;
+    margin-left: 2%;
+    font-weight: bold;
+}
+
 .text-carrito {
     font-size: 1.2em;
     margin-left: 4%;
@@ -12,10 +18,9 @@
     margin: 0 4% 0 4%;
 }
 
-.product-image {
-    width: 20%;
-    height: auto;
-}
+.division-login {
+    margin: 2%;
+}   
 
 .carrito-dropdown {
     width: 25rem;

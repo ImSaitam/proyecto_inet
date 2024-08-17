@@ -1,5 +1,5 @@
 .login-container {
-    background-color: #E5F6FF;
+    background-color: #efefef;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -74,7 +74,7 @@ p {
 }
 
 .bg-light {
-    background-color: #E5F6FF !important;
+    background-color: #f7f7f7 !important;
 }
 
 .shadow {

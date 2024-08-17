@@ -1,5 +1,5 @@
 .register-container {
-    background-color: #E5F6FF; /* Mismo color de fondo que en login */
+    background-color: #efefef; /* Mismo color de fondo que en login */
     height: 100vh;
     display: flex;
     justify-content: center;
