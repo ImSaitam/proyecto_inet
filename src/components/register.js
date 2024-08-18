@@ -25,6 +25,7 @@ export default function RegisterForm() {
         party: "",
         locality:  "",
         address: "",
+        dni: "",
     });
 
     const handleSubmit = async (event) => {
@@ -85,6 +86,9 @@ export default function RegisterForm() {
                             </Form.Group>
                             <Form.Group className='mb-3'>
                                 <Form.Control type='text' placeholder="Apellido" onChange={(event) => setFormData({...formData, last_name: event.target.value})} required />
+                            </Form.Group>
+                            <Form.Group className='mb-3'>
+                                <Form.Control type='number' placeholder='Número de documento' min={1} max={99999999} onChange={(event) => setFormData({...formData, dni: event.target.value})} required />
                             </Form.Group>
                             <Form.Group className='mb-3'>
                                 <Form.Control type='text' placeholder='Nombre de usuario' onChange={(event) => setFormData({...formData, username: event.target.value})} required />
