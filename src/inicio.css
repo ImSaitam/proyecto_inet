@@ -1,32 +1,45 @@
 .custom-carousel .carousel-item img {
-    height: 300px; /* Ajusta la altura del carrusel aquí */
-    object-fit: cover;
-  }
-  
-  .slider-container {
-    overflow-x: scroll;
-    display: flex;
-    justify-content: center;
-    height: 10% !important; 
-  }
-  
-  .slider {
-    display: flex;
-    gap: 20px;
-    width: fit-content;
-    margin-left: 1%;
-    margin-right: 1%;
-  }
-  
-  .slider-card {
-    min-width: 10%;
-    flex: 10%;
-    flex: 0 0 calc(25% - 20px); /* Esto asegura que cada tarjeta ocupe un 25% del contenedor menos el margen */
-    margin-bottom: 20px;
-  }
-  
+  height: 300px; /* Ajusta la altura del carrusel aquí */
+  object-fit: cover;
+}
 
-  .title-1{
-    margin-top: 1%;
-    margin-left: 1%;
-  }
+.title-1{
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+.contenido-inicio {
+  display: flex;
+  justify-content: center;
+  padding: 20px; /* Opcional: Ajusta el espacio alrededor de la tabla */
+}
+
+.centered-table {
+  width: 100%;
+  table-layout: fixed; /* Asegura que todas las columnas tengan el mismo ancho */
+  border-collapse: separate; /* Evita que los bordes se colapsen en la tabla */
+  border-spacing: 0; /* Elimina el espacio entre celdas */
+  border: 1px solid #dee2e6; /* Define el borde externo de la tabla */
+}
+
+.centered-table th, .centered-table td {
+  text-align: center; /* Centra el texto horizontalmente en las celdas */
+  border: none; /* Elimina los bordes internos de las celdas */
+}
+
+.centered-table td {
+  vertical-align: middle; /* Centra el contenido verticalmente en las celdas */
+}
+
+.actions-inicio {
+  display: flex;
+  justify-content: center; /* Centra los botones horizontalmente en el contenedor */
+}
+
+.btn-group {
+  margin: 0 5px; /* Espacio entre los grupos de botones */
+}
+
+.btn-group .btn {
+  margin-top: 0; 
+}
