@@ -3,7 +3,7 @@ import '../Footer.css';
 
 export default function Footer() {
     return (
-        <footer className="bg-dark text-light mt-5">
+        <footer className="bg-dark text-light mt-5 footer-pocho">
       <Container>
         <Row>
           <Col md={4}>

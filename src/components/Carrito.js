@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import axios from 'axios';
 import BarraNav from './Navbar';
 import Footer from './footer.js';
+import '../carrito.css';
+
+// Create a context for the cart
+const CartContext = React.createContext();
 
 export default function Carrito() {
     const [products, setProducts] = useState([]);
     const [total, setTotal] = useState(0);
-  
+
     useEffect(() => {
       axios.get('/api/products')
         .then(response => {
@@ -18,74 +22,112 @@ export default function Carrito() {
           console.error('Error fetching the products:', error);
         });
     }, []);
-  
+
     const calculateTotal = (products) => {
-      const totalPrice = products.reduce((acc, product) => acc + product.price, 0);
+      const totalPrice = products.reduce((acc, product) => acc + product.price * product.quantity, 0);
       setTotal(totalPrice);
+
+
+
+      //----------------------------------------------esto estaba para probarlo de manera estatica jeje lo dejo por las dudas.--------------------------------------
+      //   const [products, setProducts] = useState([
+      //     { name: "Nike Mercurial", quantity: 1, price: 78999 },
+      //     { name: "Adidas Predator", quantity: 2, price: 65999 },
+      //     { name: "Puma Future", quantity: 1, price: 59999 },
+      //     { name: "New Balance Furon", quantity: 3, price: 70999 },
+      //     { name: "Umbro Velocita", quantity: 1, price: 67999 },
+      //     { name: "Mizuno Morelia", quantity: 1, price: 73999 },
+      //     { name: "Reebok Classic", quantity: 2, price: 58999 }
+      // ]);
+
+      // const [total, setTotal] = useState(0);
+
+      // useEffect(() => {
+      //     calculateTotal(products);
+      // }, [products]);
+
+      // const calculateTotal = (products) => {
+      //     const totalPrice = products.reduce((acc, product) => acc + product.price * product.quantity, 0);
+      //     setTotal(totalPrice);
+      //----------------------------------------------------------------------------------------------------------------------------------------------------------------
     };
-  
+
     return (
-    <>
-    <BarraNav/>      
-    <Container fluid className="bg-light text-dark min-vh-100">
-      <Row className="h-100">
-        <Col lg={8}>
-          <h2>Mi carrito</h2>
-          {products.map(product => (
-            <Card key={product.id} className="bg-light text-dark mb-3">
-              <Card.Body className="d-flex">
-                <div className="w-100">
-                  <h5 className="mb-1">{product.name}</h5>
-                  <p className="text-muted">{product.description}</p>
-                  <span className="badge bg-primary">-100 %</span>
-                  <span className="ml-2 text-muted text-decoration-line-through">
-                    USD {product.originalPrice.toFixed(2)}
-                  </span>
-                  <span className="ml-2">Gratis</span>
-                  <p className="mt-2 mb-0">
-                    <small className="text-muted">
-                      Reembolsable de forma automática
-                    </small>
-                  </p>
-                </div>
-                <div className="ml-auto">
-                  <Button variant="link" className="text-dark">Eliminar</Button>
-                  <Button variant="link" className="text-dark">Mover a lista de deseos</Button>
-                </div>
+      <CartContext.Provider value={{ products, setProducts, total, calculateTotal }}>
+        <BarraNav />
+        <Container className="mt-5">
+          <Row>
+            <Col md={8}>
+              <h2>Mi carrito</h2>
+              <CartList />
+            </Col>
+            <Col md={4}>
+              <h2>Resumen</h2>
+              <Summary />
+            </Col>
+          </Row>
+        </Container>
+        <Footer />
+      </CartContext.Provider>
+    );
+}
+
+function CartList() {
+    const { products } = useContext(CartContext);
+
+    return (
+      <div className="cart-container">
+        {products.length === 0 ? (
+          <p>No hay productos en el carrito.</p>
+        ) : (
+          products.map((product, index) => (
+            <Card key={index} className="mb-3 product-card">
+              <Card.Body>
+                <Row>
+                  <Col>{product.name}</Col>
+                  <Col>Cantidad: {product.quantity}</Col>
+                  <Col>ARS {product.price.toFixed(2)}</Col>
+                </Row>
               </Card.Body>
             </Card>
-          ))}
-        </Col>
-        <Col lg={4} className="d-flex">
-          <Card className="bg-light text-dark p-3 w-100" style={{ minHeight: '75vh' }}>
-            <div className="d-flex flex-column justify-content-between h-100">
-              <div>
-                <h4>Resumen de juegos y aplicaciones</h4>
-                <hr />
-                <div className="d-flex justify-content-between">
-                  <span>Precio</span>
-                  <span>USD {total.toFixed(2)}</span>
-                </div>
-                <div className="d-flex justify-content-between">
-                  <span>Descuento por oferta</span>
-                  <span>-USD {total.toFixed(2)}</span>
-                </div>
-                <hr />
-                <div className="d-flex justify-content-between">
-                  <span>Subtotal</span>
-                  <span>USD 0.00</span>
-                </div>
-              </div>
-              <Button variant="primary" className="mt-3">
-                Ir a pantalla de compra
-              </Button>
-            </div>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
-      <Footer/>
-      </>
-
+          ))
+        )}
+      </div>
     );
-  }
+}
+
+function Summary() {
+  const { products, total } = useContext(CartContext);
+
+  return (
+    <Card>
+      <Card.Body className='summary-container'>
+        <h4>Detalle del precio:</h4>
+        {products.map((product, index) => (
+          <Row key={index}>
+            <Col>{product.name} x {product.quantity}</Col>
+            <Col>ARS {(product.price * product.quantity).toFixed(2)}</Col>
+          </Row>
+        ))}
+        <hr />
+        <Row>
+          <Col>Subtotal:</Col>
+          <Col>ARS {total.toFixed(2)}</Col>
+        </Row>
+        <Row>
+          <Col>Descuento:</Col>
+          <Col>-ARS 0.00</Col>
+        </Row>
+        <hr />
+        <p>*Impuestos incluidos</p>
+        <Row>
+          <Col>Total:</Col>
+          <Col>ARS {total.toFixed(2)}</Col>
+        </Row>
+        <div className="button-wrapper">
+                <Button variant="primary" className="button-compra">Comprar ahora</Button>
+        </div>
+      </Card.Body>
+    </Card>
+  );
+}
