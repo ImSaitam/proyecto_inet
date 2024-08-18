@@ -40,7 +40,7 @@ export default function Inicio() {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>Primera promocion</h3>
+            <h3>Primera promoción</h3>
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption>
         </Carousel.Item>
@@ -51,7 +51,7 @@ export default function Inicio() {
             alt="Second slide"
           />
           <Carousel.Caption>
-            <h3>Segunda promocion</h3>
+            <h3>Segunda promoción</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </Carousel.Caption>
         </Carousel.Item>
@@ -62,7 +62,7 @@ export default function Inicio() {
             alt="Third slide"
           />
           <Carousel.Caption>
-            <h3>Tercera promocion</h3>
+            <h3>Tercera promoción</h3>
             <p>
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
             </p>
