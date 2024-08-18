@@ -1,0 +1,41 @@
+.title-1{
+    margin-top: 1%;
+    margin-left: 1%;
+  }
+  
+  .contenido-catalogo {
+    display: flex;
+    justify-content: center;
+    padding: 20px; /* Opcional: Ajusta el espacio alrededor de la tabla */
+  }
+  
+  .centered-table {
+    width: 100%;
+    table-layout: fixed; /* Asegura que todas las columnas tengan el mismo ancho */
+    border-collapse: separate; /* Evita que los bordes se colapsen en la tabla */
+    border-spacing: 0; /* Elimina el espacio entre celdas */
+    border: 1px solid #dee2e6; /* Define el borde externo de la tabla */
+  }
+  
+  .centered-table th, .centered-table td {
+    text-align: center; /* Centra el texto horizontalmente en las celdas */
+    border: none; /* Elimina los bordes internos de las celdas */
+  }
+  
+  .centered-table td {
+    vertical-align: middle; /* Centra el contenido verticalmente en las celdas */
+  }
+  
+  .actions-catalogo {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente en el contenedor */
+  }
+  
+  .btn-group {
+    margin: 0 5px; /* Espacio entre los grupos de botones */
+  }
+  
+  .btn-group .btn {
+    margin-top: 0; 
+  }
+  
