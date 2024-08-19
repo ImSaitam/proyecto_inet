@@ -84,13 +84,16 @@ const handleCloseModal = () => {
               />
             </Form.Group>
             <Form.Group controlId="categoria">
-              <Form.Label>Categoría del producto</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Ingrese la categoría del producto"
+            <Form.Label>Categoría del producto</Form.Label>
+            <Form.Control
+                as="select"
                 onChange={(event) => setFormData({...formData, category: event.target.value})}
-              />
-            </Form.Group>
+            >
+                <option value="">Seleccione una categoría</option>
+                <option value="camiseta">Camiseta</option>
+                <option value="calzado">Calzado</option>
+            </Form.Control>
+        </Form.Group>
             <Button type="submit" variant="success" className="mt-3">
               Subir producto
             </Button>

@@ -29,9 +29,9 @@ export default function Catalogo() {
     fetchProducts();
   }, []);
 
-  const calzados = products.filter((product) => product.category === "Calzado");
+  const calzados = products.filter((product) => product.category === "calzado");
   const camisetas = products.filter(
-    (product) => product.category === "Camisetas"
+    (product) => product.category === "camiseta"
   );
 
   return (
