@@ -5,18 +5,20 @@ import Inicio from './components/Inicio.js';
 import LoginForm from './components/login.js';
 import RegisterForm from './components/register.js';
 import AñadirStock from './components/AñadirStock.js';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ProtectedRoute from './components/ProtectedRoute.js';
+import VerPedidos from './components/ver_pedidos.js'; // Renamed component
 
-export default function App(){
-  return(
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+export default function App() {
+  return (
     <BrowserRouter>
       <Routes>
+        <Route path='/ver_pedidos' element={<VerPedidos />} />
         <Route path='/login' element={<LoginForm />} />
         <Route path='/register' element={<RegisterForm />} />
         <Route path='/' element={<Inicio />} />
         <Route path='/catalogo' element={<Catalogo />} />
-        <Route path='/agregarproductos' element={ <ProtectedRoute> <AñadirStock /> </ProtectedRoute> } />
+        <Route path='/agregarproductos' element={<AñadirStock />} />
         <Route path='/carrito' element={<Carrito />} />
       </Routes>
     </BrowserRouter>
