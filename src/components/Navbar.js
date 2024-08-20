@@ -40,6 +40,12 @@ export default function BarraNav() {
             {isSeller && (
               <Link to={"/agregarproductos"} className='text-decoration-none text-secondary ms-5'>Añadir productos</Link>
             )}
+             {isSeller && (
+              <Link to={"/editarproductos"} className='text-decoration-none text-secondary ms-5'>Editar productos</Link>
+            )}
+            {isSeller && (
+              <Link to={"/verpedidos"} className='text-decoration-none text-secondary ms-5'>Ver pedidos</Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

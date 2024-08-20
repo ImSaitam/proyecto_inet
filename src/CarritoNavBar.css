@@ -1,45 +1,41 @@
-.carrito {
-    margin-right: 2vh;
-}
-
-.text-login {
-    font-size: 1.2em;
-    margin-left: 2%;
-    font-weight: bold;
+.carrito-dropdown {
+    padding: 20px;
+    border-radius: 15px;
+    width: 24rem;
+    background-color: #fff;
 }
 
 .text-carrito {
-    font-size: 1.2em;
-    margin-left: 4%;
     font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .division {
-    margin: 0 4% 0 4%;
+    margin: 0;
+    border: 1px solid #ddd;
 }
 
-.division-login {
-    margin: 2%;
-}   
-
-.carrito-dropdown {
-    width: 25rem;
-}
-
-.product-amount {
-    margin-left: 1em;
-}
-
-.product-name {
-    margin-left: 1em;
-    font-weight: bold;
+.product-item {
+    background-color: #f8f9fa;
+    border-radius: 10px;
 }
 
 .product-price {
-    margin-left: 4em;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.total-section {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.total-price {
+    font-size: 1.2rem;
+    color: #000;
 }
 
 .checkout-button {
-    width: 92%;
-    margin: 0 4% 0 4%;
+    font-size: 1.1rem;
+    padding: 10px;
 }
