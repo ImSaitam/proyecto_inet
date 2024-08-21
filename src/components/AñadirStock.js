@@ -49,6 +49,7 @@ const handleCloseModal = () => {
                 type="text"
                 placeholder="Ingrese el nombre del producto"
                 onChange={(event) => setFormData({...formData, name: event.target.value})}
+                required
               />
             </Form.Group>
             <Form.Group controlId="descripcion">
@@ -57,6 +58,7 @@ const handleCloseModal = () => {
                 as="textarea"
                 placeholder="Ingrese la descripción del producto"
                 onChange={(event) => setFormData({...formData, description: event.target.value})}
+                required
               />
             </Form.Group>
             <Form.Group controlId="precio">
@@ -65,6 +67,7 @@ const handleCloseModal = () => {
                 type="number"
                 placeholder="Ingrese el precio del producto"
                 onChange={(event) => setFormData({...formData, price: event.target.value})}
+                required
               />
             </Form.Group>
             <Form.Group controlId="stock">
@@ -73,6 +76,7 @@ const handleCloseModal = () => {
                 type="number"
                 placeholder="Ingrese el stock del producto"
                 onChange={(event) => setFormData({...formData, stock: event.target.value})}
+                required
               />
             </Form.Group>
             <Form.Group controlId="codigo">
@@ -81,18 +85,17 @@ const handleCloseModal = () => {
                 type="text"
                 placeholder="Ingrese el código del producto"
                 onChange={(event) => setFormData({...formData, code: event.target.value})}
+                required
               />
             </Form.Group>
             <Form.Group controlId="categoria">
             <Form.Label>Categoría del producto</Form.Label>
             <Form.Control
-                as="select"
+                type="text"
+                placeholder="Ingrese la categoria del producto"
                 onChange={(event) => setFormData({...formData, category: event.target.value})}
-            >
-                <option value="">Seleccione una categoría</option>
-                <option value="camiseta">Camiseta</option>
-                <option value="calzado">Calzado</option>
-            </Form.Control>
+                required
+              />
         </Form.Group>
             <Button type="submit" variant="success" className="mt-3">
               Subir producto

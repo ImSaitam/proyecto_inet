@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Dropdown from 'react-bootstrap/Dropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import BarraNav from './Navbar';
+import BarraNav from './Navbar.js';
 import Footer from './footer.js';
-import Button from 'react-bootstrap/Button';
 import '../ver_pedidos.css';
-import Table from 'react-bootstrap/Table';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import { Button, Dropdown, Table } from 'react-bootstrap';
 
 export default function VerPedidos() {
   const [orders, setOrders] = useState([]);
@@ -36,15 +33,16 @@ export default function VerPedidos() {
     }));
   };
 
-  const handleConfirmStatusChange = (orderId) => {
-    const statusUpdate = { status: selectedStatus[orderId] };
-    axios.put(`http://localhost:8000/sales/${orderId}`, statusUpdate, {
+  const handleConfirmStatusChange = (id) => {
+    const statusUpdate = { status: selectedStatus[id] };
+    axios.put(`http://localhost:8000/sales/${id}`, statusUpdate, {
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       }
     })
       .then(response => {
         console.log('Sale status updated:', response.data);
+        window.location.reload()
       })
       .catch(error => {
         console.error('Error updating sale status:', error);
@@ -68,22 +66,24 @@ export default function VerPedidos() {
   });
 
   return (
-    <>
-      <BarraNav />
-      <h2 className="title-1">
-        <Dropdown onSelect={handleOrderTypeChange}>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            {selectedOrderType ? selectedOrderType.charAt(0).toUpperCase() + selectedOrderType.slice(1) : 'Pedidos'}
-          </Dropdown.Toggle>
-          <Dropdown.Menu>
-            <Dropdown.Item eventKey="pendientes">Pedidos pendientes</Dropdown.Item>
-            <Dropdown.Item eventKey="entregados">Pedidos entregados</Dropdown.Item>
-            <Dropdown.Item eventKey="anulados">Pedidos anulados</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      </h2>
-      <div className='contenido-catalogo'>
-        <Table striped bordered className='centered-table'>
+    <>  
+      <div className="page-container">
+      <div className="content-wrap">
+        <BarraNav />
+        <h2 className="title-1">
+          <Dropdown onSelect={handleOrderTypeChange}>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              {selectedOrderType ? selectedOrderType.charAt(0).toUpperCase() + selectedOrderType.slice(1) : 'Pedidos'}
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item eventKey="pendientes">Pedidos pendientes</Dropdown.Item>
+              <Dropdown.Item eventKey="entregados">Pedidos entregados</Dropdown.Item>
+              <Dropdown.Item eventKey="anulados">Pedidos anulados</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </h2>
+        <div className="contenido-catalogo">
+          <Table striped bordered className="centered-table">
           <thead>
             <tr>
               <th>ID</th>
@@ -108,9 +108,9 @@ export default function VerPedidos() {
                   ))}
                 </td>
                 <td>{order.sale?.status || 'N/A'}</td>
-                <td className='actions-catalogo'>
-                  <ButtonGroup className="button-comprar" aria-label="">
-                    <Dropdown onSelect={(eventKey) => handleStatusChange(order.id, eventKey)}>
+                <td className="actions-catalogo">
+                  <div className="d-flex flex-column">
+                    <Dropdown onSelect={(eventKey) => handleStatusChange(order.id, eventKey)} className="mb-2">
                       <Dropdown.Toggle variant="success" id="dropdown-basic">
                         {selectedStatus[order.id] || 'Estado'}
                       </Dropdown.Toggle>
@@ -122,17 +122,17 @@ export default function VerPedidos() {
                         <Dropdown.Item eventKey="Anulado">Anulado</Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
-                  </ButtonGroup>
-                  <ButtonGroup aria-label="button-carrito">
                     <Button variant="success" onClick={() => handleConfirmStatusChange(order.id)}>Confirmar</Button>
-                  </ButtonGroup>
+                  </div>
                 </td>
               </tr>
             ))}
           </tbody>
-        </Table>
+          </Table>
+        </div>
       </div>
       <Footer />
+    </div>
     </>
   );
 }

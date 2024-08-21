@@ -83,7 +83,6 @@ useEffect(() => {
               <th>Nombre</th>
               <th>Descripción</th>
               <th>Precio</th>
-              <th>Categoría</th>
               <th>  </th>
             </tr>
           </thead>

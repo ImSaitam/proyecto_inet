@@ -30,20 +30,32 @@ export default function EditarProductos() {
   const handleCloseModal = () => {
     setShowModal(false);
   }
-
-  const borrarProducto = async (product) => {
+  const handleDeleteProduct = async () => {
     try {
-      const response = await axios.delete(`http://localhost:8000/products/${product.id}`, {
+      const response = await axios.delete(`http://localhost:8000/products/${productToDelete.id}`, {
         headers: {
           'Authorization':  'Bearer ' + localStorage.getItem('token'),
           'Content-Type': 'application/json'
         }
-      })
-      window.location.reload()
+      });
+      window.location.reload();
     } catch (error) {
       console.error(error);
     }
-  }
+  };
+
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+const [productToDelete, setProductToDelete] = useState({});
+
+const handleShowDeleteModal = (product) => {
+  setShowDeleteModal(true);
+  setProductToDelete(product);
+};
+
+const handleCloseDeleteModal = () => {
+  setShowDeleteModal(false);
+};
+
 
   const handleSubmit = async (product) => {
     try {
@@ -148,8 +160,8 @@ export default function EditarProductos() {
                   />
                 </td>
                 <td>
-                  <Button variant="success" className="w-40" onClick={() => handleSubmit(product)}>Editar</Button>
-                  <Button variant="danger" className="w-40 ms-2" onClick={() => borrarProducto(product)}>Borrar</Button>
+                  <Button variant="success" className="w-40" onClick={() => handleSubmit(product)}>Guardar</Button>
+                  <Button variant="danger" className="w-40 ms-2" onClick={() => handleShowDeleteModal(product)}>Borrar</Button>
                 </td>
               </tr>
             ))}
@@ -168,6 +180,22 @@ export default function EditarProductos() {
             </Button>
           </Modal.Footer>
         </Modal>
+        <Modal show={showDeleteModal} onHide={handleCloseDeleteModal}>
+  <Modal.Header closeButton>
+    <Modal.Title>Confirmar borrado de producto</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    ¿Estás seguro de que deseas borrar el producto "{productToDelete.name}"?
+  </Modal.Body>
+  <Modal.Footer>
+    <Button variant="danger" onClick={handleDeleteProduct}>
+      Borrar
+    </Button>
+    <Button variant="secondary" onClick={handleCloseDeleteModal}>
+      Cancelar
+    </Button>
+  </Modal.Footer>
+</Modal>
       </div>
       <Footer />
     </>
